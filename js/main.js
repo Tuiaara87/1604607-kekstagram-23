@@ -1,6 +1,6 @@
-import './util.js';
+import './utils.js';
 
-import './object.js';
+import './mocks.js';
 
 import './photos.js';
 

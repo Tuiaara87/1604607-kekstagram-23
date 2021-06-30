@@ -25,9 +25,7 @@ const MESSAGES = [
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!',
 ];
 
-console.log(_);
-
-const createMyFirstObject = (i) => {
+const createMyFirstObject = (idNumber) => {
   const randomDescriptionIndex = _.random(0, DESCRIPTIONS.length - 1);
   const randomNamesIndex = _.random(0, NAMES.length - 1);
   const randomMessagesIndex = _.random(0, MESSAGES.length - 1);
@@ -36,15 +34,15 @@ const createMyFirstObject = (i) => {
   const randomAvatarIndex = _.random(1, 6);
 
   return {
-    id: i,
-    url: 'photos/' + i + '.jpg',
-    avatar: 'img/avatar-' + i + '.svg',
+    id: idNumber,
+    url: `photos/${idNumber}.jpg`,
+    avatar: `img/avatar-${idNumber}.svg`,
     description: DESCRIPTIONS[randomDescriptionIndex],
     likes: randomLikesIndex,
     comments: [
       {
         id: randomCommentsIndex,
-        avatar: 'img/avatar-' + randomAvatarIndex + '.svg',
+        avatar: `img/avatar-${randomAvatarIndex}.svg`,
         message: MESSAGES[randomMessagesIndex],
         name: NAMES[randomNamesIndex],
       },
@@ -52,12 +50,7 @@ const createMyFirstObject = (i) => {
   };
 };
 const photos = [];
-for (let i = 1; i <= 25; i++) {
-  const photo = createMyFirstObject(i);
+for (let index = 1; index <= 25; index++) {
+  const photo = createMyFirstObject(index);
   photos.push(photo);
 }
-
-console.log(photos);
-
-console.log('я создала модуль для объектов');
-
